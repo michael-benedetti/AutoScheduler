@@ -297,7 +297,7 @@ def set_icon(window):
     try:
         window.iconbitmap(os.path.join(sys._MEIPASS, '91OG.ico'))
     except:
-        window.iconbitmap('91OG.ico')
+        pass
 
 
 class backupCalendar():
@@ -305,7 +305,10 @@ class backupCalendar():
         self.backupDays = []
         self.top = Toplevel()
         self.top.title("Backups")
-        set_icon(self.top)
+        try:
+            set_icon(self.top)
+        except:
+            pass
         self.top.resizable(width=False, height=False)
         self.top.config(bg="#666666", padx=5, pady=5)
         self.top.protocol("WM_DELETE_WINDOW", lambda: self.top.withdraw())
